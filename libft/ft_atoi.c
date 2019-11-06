@@ -3,27 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rnureeva <rnureeva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/17 17:23:37 by vinograd          #+#    #+#             */
-/*   Updated: 2019/06/04 17:54:47 by vinograd         ###   ########.fr       */
+/*   Created: 2019/04/30 16:40:44 by rnureeva          #+#    #+#             */
+/*   Updated: 2019/07/24 11:37:44 by rnureeva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_atoi(const char *s)
-{
-	int sign;
-	int res;
-	int i;
+#include "libft.h"
 
-	res = 0;
-	i = 0;
-	while ((s[i] > 8 && s[i] < 20) || s[i] == ' ')
-		i++;
-	sign = (s[i] == '-') ? -1 : 1;
-	if (s[i] == '+' || s[i] == '-')
-		i++;
-	while ((s[i] >= '0' && s[i] <= '9') && s[i] != '\0')
-		res = res * 10 + (s[i++] - '0');
-	return (res * sign);
+int		ft_atoi(const char *str)
+{
+	int	sign;
+	int	nbr;
+
+	sign = 1;
+	nbr = 0;
+	if (!*str)
+		return (0);
+	while (*str == ' ' || *str == '\v'
+			|| *str == '\t' || *str == '\0'
+			|| *str == '\r' || *str == '\n'
+			|| *str == '\f')
+		str++;
+	if (*str == '-' || *str == '+')
+	{
+		if (*str == '-')
+			sign = -1;
+		str++;
+	}
+	while (*str && *str >= '0' && *str <= '9')
+	{
+		nbr = 10 * nbr + (*str - 48);
+		str++;
+	}
+	return (nbr * sign);
 }

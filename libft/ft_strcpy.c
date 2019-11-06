@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vinograd <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rnureeva <rnureeva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/29 17:16:29 by vinograd          #+#    #+#             */
-/*   Updated: 2019/04/30 16:18:47 by vinograd         ###   ########.fr       */
+/*   Created: 2019/04/30 16:47:22 by rnureeva          #+#    #+#             */
+/*   Updated: 2019/07/24 10:15:06 by rnureeva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*ft_strcpy(char *dst, const char *src)
 {
-	int i;
+	unsigned int i;
 
 	i = 0;
-	while (src[i])
+	while (src[i] != '\0')
 	{
 		dst[i] = src[i];
 		i++;

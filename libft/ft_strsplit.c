@@ -3,22 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vinograd <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rnureeva <rnureeva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/30 14:26:17 by vinograd          #+#    #+#             */
-/*   Updated: 2019/05/09 17:34:01 by vinograd         ###   ########.fr       */
+/*   Created: 2019/07/22 18:02:42 by rnureeva          #+#    #+#             */
+/*   Updated: 2019/07/24 12:25:51 by rnureeva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-static int		words(char const *str, char c)
+static int		ft_cw(char const *str, char c)
 {
-	int i;
-	int words;
+	int	words;
+	int	i;
 
-	words = 0;
 	i = 0;
+	words = 0;
 	while (str[i])
 	{
 		while (str[i] == c && str[i] != '\0')
@@ -31,14 +31,14 @@ static int		words(char const *str, char c)
 	return (words);
 }
 
-static char		**memory_giver(char const *str, char c)
+static	char	**ft_memoryforwords(char const *str, char c)
 {
 	char	**res;
 	int		letters;
 	int		i;
 	int		j;
 
-	if ((res = (char **)malloc(sizeof(char*) * (words(str, c) + 1))) == NULL)
+	if ((res = (char **)malloc(sizeof(char*) * (ft_cw(str, c) + 1))) == NULL)
 		return (NULL);
 	i = 0;
 	j = 0;
@@ -65,26 +65,26 @@ char			**ft_strsplit(char const *str, char c)
 	char	**res;
 	int		i;
 	int		j;
-	int		str_number;
+	int		str1;
 	int		size;
 
 	if (str == NULL)
 		return (NULL);
-	size = words(str, c);
-	res = memory_giver(str, c);
+	size = ft_cw(str, c);
+	res = ft_memoryforwords(str, c);
 	if (res == NULL)
 		return (NULL);
 	i = 0;
-	str_number = 0;
-	while (str_number < size)
+	str1 = 0;
+	while (str1 < size)
 	{
 		while (str[i] == c && str[i])
 			i++;
 		j = 0;
-		while (str[i] != c && str[i])
-			res[str_number][j++] = str[i++];
-		res[str_number][j] = '\0';
-		str_number++;
+		while (str[i] != c && str[i] != '\0')
+			res[str1][j++] = str[i++];
+		res[str1][j] = '\0';
+		str1++;
 	}
 	return (res);
 }

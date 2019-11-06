@@ -3,60 +3,56 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Nik <Nik@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: rnureeva <rnureeva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/30 15:32:09 by vinograd          #+#    #+#             */
-/*   Updated: 2019/06/28 18:14:47 by Nik              ###   ########.fr       */
+/*   Created: 2019/07/22 16:54:56 by rnureeva          #+#    #+#             */
+/*   Updated: 2019/07/30 18:44:58 by rnureeva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	size(int i)
+static int	num(int nbr)
 {
-	int size;
+	int		len;
 
-	if (i == 0)
-		return (2);
-	size = 1;
-	if (i < 0)
+	len = 0;
+	if (nbr == 0)
+		return (1);
+	if (nbr < 0)
+		len++;
+	while (nbr != 0)
 	{
-		i /= 10;
-		size += 2;
-		i = -i;
+		nbr /= 10;
+		len++;
 	}
-	while (i > 0)
-	{
-		i /= 10;
-		size++;
-	}
-	return (size);
+	return (len);
 }
 
 char		*ft_itoa(int nbr)
 {
-	char	*str;
+	char	*result;
 	int		len;
-	int		sign;
+	int		stop;
 
 	if (nbr == -2147483648)
 		return (ft_strdup("-2147483648"));
-	len = size(nbr);
-	sign = 0;
+	len = num(nbr);
+	stop = 0;
+	if ((result = (char*)malloc(len + 1)) == NULL)
+		return (NULL);
+	result[len--] = '\0';
 	if (nbr < 0)
 	{
-		sign = 1;
-		nbr = -nbr;
+		result[0] = '-';
+		nbr *= -1;
+		stop = 1;
 	}
-	if ((str = (char *)malloc(len)) == NULL)
-		return (NULL);
-	str[--len] = '\0';
-	while (--len >= sign)
+	while (len >= stop)
 	{
-		str[len] = nbr % 10 + '0';
-		nbr /= 10;
+		result[len] = nbr % 10 + '0';
+		nbr = nbr / 10;
+		len--;
 	}
-	if (sign)
-		str[0] = '-';
-	return (str);
+	return (result);
 }

@@ -3,24 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vinograd <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rnureeva <rnureeva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/06 11:21:37 by vinograd          #+#    #+#             */
-/*   Updated: 2019/05/10 20:27:02 by vinograd         ###   ########.fr       */
+/*   Created: 2019/07/23 15:46:37 by rnureeva          #+#    #+#             */
+/*   Updated: 2019/07/24 11:21:18 by rnureeva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 char	*ft_strnew(size_t size)
 {
-	char *str;
+	char	*str;
 
-	str = (char *)malloc(sizeof(char) * (size + 1));
+	str = (char*)malloc(sizeof(char) * (size + 1));
 	if (str == NULL)
 		return (NULL);
 	while (size > 0)
-		str[size--] = '\0';
+	{
+		str[size] = '\0';
+		size--;
+	}
 	str[0] = '\0';
 	return (str);
 }

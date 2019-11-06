@@ -6,7 +6,7 @@
 /*   By: reginanureeva <reginanureeva@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/01 17:26:35 by reginanuree       #+#    #+#             */
-/*   Updated: 2019/11/03 14:37:19 by reginanuree      ###   ########.fr       */
+/*   Updated: 2019/11/06 10:28:29 by reginanuree      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int deal_key(int key,void *data)
 {
-	ft_printf("%d",key);
+	printf("%d",key);
 	return(0);
 }
 
@@ -32,10 +32,10 @@ int main(int argc,char **argv)
 		j = 0;
 		while (j < data->width)
 		{
-			ft_printf("%2d", data->z_matrix[i][j]);
+			printf("%2d", data->z_matrix[i][j]);
 			j++;
 		}
-		ft_printf("\n");
+		printf("\n");
 		i++;
 	}
 }

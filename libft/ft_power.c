@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   arr_len.c                                          :+:      :+:    :+:   */
+/*   ft_power.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Nik <Nik@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: rnureeva <rnureeva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/31 15:31:36 by Nik               #+#    #+#             */
-/*   Updated: 2019/08/31 15:32:09 by Nik              ###   ########.fr       */
+/*   Created: 2019/07/23 17:23:43 by rnureeva          #+#    #+#             */
+/*   Updated: 2019/07/23 17:23:53 by rnureeva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "array_int.h"
+#include "libft.h"
 
-int		arr_len(int *arr)
+int	ft_power(int n)
 {
-	return (ARR_LEN);
+	if (n > 0)
+		n = n * n;
+	return (n);
 }

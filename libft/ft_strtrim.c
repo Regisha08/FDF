@@ -3,39 +3,40 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vinograd <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rnureeva <rnureeva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/06 15:23:25 by vinograd          #+#    #+#             */
-/*   Updated: 2019/05/09 18:34:47 by vinograd         ###   ########.fr       */
+/*   Created: 2019/07/23 17:08:46 by rnureeva          #+#    #+#             */
+/*   Updated: 2019/07/23 17:11:26 by rnureeva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		length(char const *s)
-{
-	char const *p;
-
-	while ((*s == ' ' || *s == '\t' || *s == '\n') && *s)
-		s++;
-	p = s;
-	while (*s != '\0')
-		s++;
-	if (p != s)
-		s--;
-	while (*s == ' ' || *s == '\t' || *s == '\n')
-		s--;
-	return ((s - p) + 1);
-}
-
-char			*ft_strtrim(char const *s)
+char	*ft_strtrim(char const *s)
 {
 	char	*str;
+	char	*res;
+	size_t	len;
 
 	if (s == NULL)
 		return (NULL);
-	while ((*s == ' ' || *s == '\t' || *s == '\n') && *s)
+	len = ft_strlen(s);
+	str = (char *)malloc(len + 1);
+	if (str == NULL)
+		return (NULL);
+	res = str;
+	while (*s == ' ' || *s == '\t' || *s == '\n')
 		s++;
-	str = ft_strsub(s, 0, length(s));
-	return (str);
+	while (*s)
+	{
+		*str = *s;
+		str++;
+		s++;
+	}
+	str--;
+	while (*str == ' ' || *str == '\t' || *str == '\n')
+		str--;
+	str++;
+	*str = '\0';
+	return (res);
 }

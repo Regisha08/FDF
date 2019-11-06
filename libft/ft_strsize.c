@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlower.c                                      :+:      :+:    :+:   */
+/*   ft_strsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rnureeva <rnureeva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/25 14:48:09 by vinograd          #+#    #+#             */
-/*   Updated: 2019/06/25 14:53:13 by vinograd         ###   ########.fr       */
+/*   Created: 2019/07/23 15:05:38 by rnureeva          #+#    #+#             */
+/*   Updated: 2019/07/23 15:05:54 by rnureeva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdio.h>
 
-void	ft_strlower(char *str)
+int	ft_strsize(char *str, char c)
 {
-	while (*str)
-	{
-		*str = ft_tolower(*str);
-		str++;
-	}
+	int	i;
+
+	i = 0;
+	while (str[i] != c && str[i] != '\0')
+		i++;
+	return (i);
 }

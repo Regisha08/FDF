@@ -1,34 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strindex.c                                      :+:      :+:    :+:   */
+/*   ft_lstappend.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vinograd <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rnureeva <rnureeva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/13 11:50:51 by vinograd          #+#    #+#             */
-/*   Updated: 2019/05/14 14:16:39 by vinograd         ###   ########.fr       */
+/*   Created: 2019/07/22 17:04:08 by rnureeva          #+#    #+#             */
+/*   Updated: 2019/07/23 14:52:15 by rnureeva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strindex(char *haystack, char *needle)
-{
-	int i;
-	int j;
-	int n;
+#include "libft.h"
 
-	i = 0;
-	while (haystack[i])
-	{
-		j = 0;
-		n = i;
-		while (needle[j] == haystack[n])
-		{
-			if (needle[j + 1] == '\0')
-				return (i);
-			n++;
-			j++;
-		}
-		i++;
-	}
-	return (-1);
+void	ft_lstappend(t_list **alst, t_list *new)
+{
+	t_list *x;
+
+	x = *alst;
+	while (x->next != NULL)
+		x = x->next;
+	x->next = new;
+	new->next = NULL;
 }

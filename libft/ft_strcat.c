@@ -3,26 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vinograd <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rnureeva <rnureeva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/30 15:33:23 by vinograd          #+#    #+#             */
-/*   Updated: 2019/05/02 20:38:48 by vinograd         ###   ########.fr       */
+/*   Created: 2019/07/23 17:17:28 by rnureeva          #+#    #+#             */
+/*   Updated: 2019/07/23 17:17:47 by rnureeva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcat(char *restrict str1, const char *restrict str2)
+char	*ft_strcat(char *restrict s1, const char *restrict s2)
 {
-	char *tmp;
+	int	i;
+	int	j;
 
-	tmp = str1;
-	while (*str1)
-		str1++;
-	while (*str2)
+	i = 0;
+	j = 0;
+	while (s1[i])
+		i++;
+	while (s2[j])
 	{
-		*str1 = *str2;
-		str1++;
-		str2++;
+		s1[i] = s2[j];
+		i++;
+		j++;
 	}
-	*str1 = '\0';
-	return (tmp);
+	s1[i] = '\0';
+	return (s1);
 }

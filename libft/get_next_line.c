@@ -3,88 +3,108 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rnureeva <rnureeva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/13 21:56:03 by vinograd          #+#    #+#             */
-/*   Updated: 2019/06/17 20:45:38 by vinograd         ###   ########.fr       */
+/*   Created: 2019/11/02 10:36:43 by rnureeva          #+#    #+#             */
+/*   Updated: 2019/11/02 10:37:33 by rnureeva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static t_arr	*newlist(const int fd)
+int				pointer(char **saver, char **str, char **line, const int fd)
 {
-	t_arr	*new;
+	char			*p;
 
-	if (!(new = (t_arr *)malloc(sizeof(t_arr))))
-		return (NULL);
-	new->fd = fd;
-	new->rest = ft_strnew(BUFF_SIZE);
-	new->next = NULL;
-	return (new);
+	p = ft_strchr(str[fd], '\n');
+	if (*str[fd] != '\0')
+	{
+		if (p == NULL)
+		{
+			*saver = ft_strdup(str[fd]);
+			free(str[fd]);
+			str[fd] = NULL;
+		}
+		else if (p != NULL)
+		{
+			*p = '\0';
+			*saver = ft_strdup(str[fd]);
+			p++;
+			ft_strcpy(str[fd], p);
+			*line = *saver;
+			return (1);
+		}
+	}
+	return (0);
 }
 
-static char		*checkrest(char **p_n, char *rest)
+void			savbuf(char **saver, char buffer[])
 {
-	char *str;
+	char			*tmp;
 
-	if ((*p_n = ft_strchr(rest, '\n')) != NULL)
+	if (*saver != NULL)
 	{
-		str = ft_strsub(rest, 0, *p_n - rest);
-		ft_strcpy(rest, ++(*p_n));
+		tmp = *saver;
+		*saver = ft_strjoin(*saver, buffer);
+		free(tmp);
 	}
 	else
-	{
-		str = ft_strnew(ft_strlen(rest) + 1);
-		ft_strcat(str, rest);
-		ft_strclr(rest);
-	}
-	return (str);
+		*saver = ft_strdup(buffer);
 }
 
-static int		get_line(const int fd, char **line, char *rest)
+int				resread(char **saver, char buffer[],
+						char **str, const int fd)
 {
-	char			buf[BUFF_SIZE + 1];
-	char			*p_n;
-	char			*tmp;
-	int				rd;
+	char *p;
 
-	p_n = NULL;
-	rd = 1;
-	*line = checkrest(&p_n, rest);
-	while (p_n == 0 && ((rd = read(fd, buf, BUFF_SIZE)) != 0))
+	p = ft_strchr(buffer, '\n');
+	if (p != NULL)
 	{
-		buf[rd] = '\0';
-		if ((p_n = ft_strchr(buf, '\n')) != NULL)
-		{
-			ft_strcpy(rest, ++p_n);
-			ft_strclr(--p_n);
-		}
-		tmp = *line;
-		if (!(*line = ft_strjoin(tmp, buf)) || rd < 0)
-			return (-1);
-		ft_strdel(&tmp);
+		*p = '\0';
+		p++;
+		str[fd] = ft_strdup(p);
+		savbuf(saver, buffer);
+		return (1);
 	}
-	return ((ft_strlen(*line) || ft_strlen(rest) || rd) ? 1 : 0);
+	savbuf(saver, buffer);
+	return (0);
+}
+
+int				valid_args(const int fd, char **line)
+{
+	char		buffer[1];
+
+	if (fd < 0 || !line || (read(fd, buffer, 0) < 0) ||
+			fd > FD_MAX || BUFF_SIZE <= 0)
+		return (0);
+	return (1);
 }
 
 int				get_next_line(const int fd, char **line)
 {
-	static t_arr	*list;
-	t_arr			*tmp;
-	int				ret;
+	char			buffer[BUFF_SIZE + 1];
+	int				res;
+	static char		*str[FD_MAX];
+	char			*saver;
 
-	if (fd < 0 || line == 0)
+	if (!valid_args(fd, line))
 		return (-1);
-	if (!list)
-		list = newlist(fd);
-	tmp = list;
-	while (tmp->fd != fd)
+	saver = NULL;
+	if ((str[fd] != NULL) && (pointer(&saver, str, line, fd) == 1))
+		return (1);
+	res = 1;
+	while (res)
 	{
-		if (tmp->next == NULL)
-			tmp->next = newlist(fd);
-		tmp = tmp->next;
+		if ((res = read(fd, buffer, BUFF_SIZE)) < 0)
+			return (-1);
+		else if (res == 0)
+			return ((*line = saver) == NULL) ? 0 : 1;
+		buffer[res] = '\0';
+		if (resread(&saver, buffer, str, fd))
+		{
+			*line = saver;
+			return (1);
+		}
 	}
-	ret = get_line(fd, line, tmp->rest);
-	return (ret);
+	return (1);
 }

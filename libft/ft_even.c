@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   arr_print.c                                        :+:      :+:    :+:   */
+/*   ft_even.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Nik <Nik@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: rnureeva <rnureeva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/31 15:23:23 by Nik               #+#    #+#             */
-/*   Updated: 2019/08/31 15:27:56 by Nik              ###   ########.fr       */
+/*   Created: 2019/07/22 16:53:30 by rnureeva          #+#    #+#             */
+/*   Updated: 2019/07/23 15:05:19 by rnureeva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "array_int.h"
+#include <stdio.h>
 
-void	arr_print(int *arr)
+int	ft_even(int n)
 {
-	int i;
-
-	i = 1;
-	while (i <= ARR_LEN)
-	{
-		ft_printf("%d ", arr[i++]);
-	}
-	ft_printf("\n");
+	if (n % 2 == 0)
+		return (1);
+	return (0);
 }

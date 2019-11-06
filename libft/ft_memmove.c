@@ -3,31 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vinograd <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rnureeva <rnureeva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/02 17:11:09 by vinograd          #+#    #+#             */
-/*   Updated: 2019/05/14 19:28:27 by vinograd         ###   ########.fr       */
+/*   Created: 2019/07/22 17:58:18 by rnureeva          #+#    #+#             */
+/*   Updated: 2019/07/22 17:58:19 by rnureeva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include <stdio.h>
+#include <string.h>
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	unsigned char *p_dst;
-	unsigned char *p_src;
+	unsigned char *dst2;
+	unsigned char *src2;
 
-	p_dst = (unsigned char*)dst;
-	p_src = (unsigned char*)src;
+	dst2 = (unsigned char*)dst;
+	src2 = (unsigned char*)src;
 	if (dst >= src)
 		while (len--)
-			p_dst[len] = p_src[len];
+			dst2[len] = src2[len];
 	else
 		while (len--)
 		{
-			*p_dst = *p_src;
-			p_src++;
-			p_dst++;
+			*dst2 = *src2;
+			src2++;
+			dst2++;
 		}
 	return (dst);
 }

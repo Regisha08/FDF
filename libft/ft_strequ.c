@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strequ.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vinograd <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rnureeva <rnureeva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/06 13:13:37 by vinograd          #+#    #+#             */
-/*   Updated: 2019/05/06 20:09:48 by vinograd         ###   ########.fr       */
+/*   Created: 2019/07/23 17:12:01 by rnureeva          #+#    #+#             */
+/*   Updated: 2019/07/23 17:12:22 by rnureeva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strequ(char const *s1, char const *s2)
+int	ft_strequ(char const *s1, char const *s2)
 {
 	if (s1 == NULL || s2 == NULL)
 		return (0);

@@ -1,29 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memdup.c                                        :+:      :+:    :+:   */
+/*   ft_abs.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vinograd <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rnureeva <rnureeva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/10 13:20:16 by vinograd          #+#    #+#             */
-/*   Updated: 2019/05/10 13:35:13 by vinograd         ###   ########.fr       */
+/*   Created: 2019/07/22 16:49:41 by rnureeva          #+#    #+#             */
+/*   Updated: 2019/07/22 16:52:33 by rnureeva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memdup(void const *src, size_t len)
+int		ft_abs(int n)
 {
-	void	*dst;
-	size_t	i;
-
-	i = 0;
-	if ((dst = malloc(len)) == NULL)
-		return (NULL);
-	while (i < len)
-	{
-		((char*)dst)[i] = ((char*)src)[i];
-		i++;
-	}
-	return (dst);
+	if (n < 0)
+		n = -n;
+	return (n);
 }

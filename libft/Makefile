@@ -3,23 +3,25 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: Nik <Nik@student.42.fr>                    +#+  +:+       +#+         #
+#    By: rnureeva <rnureeva@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2019/05/03 17:45:40 by vinograd          #+#    #+#              #
-#    Updated: 2019/08/31 17:09:21 by Nik              ###   ########.fr        #
+#    Created: 2019/04/30 16:52:35 by rnureeva          #+#    #+#              #
+#    Updated: 2019/11/02 10:45:26 by rnureeva         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME=libft.a
 
-SRCS=*.c ft_printf/*.c array_int/*.c
+SRCS=*.c
 
 OBJECTS=*.o
+
+INCLUDES=./
 
 all: $(NAME)
 
 $(NAME):
-	gcc -Wall -Wextra -Werror -c $(SRCS)
+	gcc -Wall -Wextra -Werror -I$(INCLUDES) -c $(SRCS)
 	ar -rc $(NAME) $(OBJECTS)
 	ranlib $(NAME)
 
