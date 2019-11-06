@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: reginanureeva <reginanureeva@student.42    +#+  +:+       +#+        */
+/*   By: vinograd <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/01 17:04:32 by reginanuree       #+#    #+#             */
-/*   Updated: 2019/11/02 17:54:01 by reginanuree      ###   ########.fr       */
+/*   Created: 2019/04/02 21:02:44 by vinograd          #+#    #+#             */
+/*   Updated: 2019/05/02 13:56:21 by vinograd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H
+#include <stddef.h>
 
-#include "libft/libft.h"
-#include "minilibx_macos/mlx.h"
-
-typedef struct
+int		ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	int width;
-	int height;
-	int **z_matrix;
-
-	void *mlx_ptr;
-	void *win_ptr;
-}           fdf;
-
-void read_file(char *file_name,fdf *data);
-
-#endif
+	while ((*s1 || *s2) && n)
+	{
+		if (*s1 != *s2)
+			return ((unsigned char)*s1 - (unsigned char)*s2);
+		n--;
+		s1++;
+		s2++;
+	}
+	return (0);
+}

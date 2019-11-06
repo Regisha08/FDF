@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: reginanureeva <reginanureeva@student.42    +#+  +:+       +#+        */
+/*   By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/01 17:04:32 by reginanuree       #+#    #+#             */
-/*   Updated: 2019/11/02 17:54:01 by reginanuree      ###   ########.fr       */
+/*   Created: 2019/04/29 15:35:16 by vinograd          #+#    #+#             */
+/*   Updated: 2019/06/29 20:46:09 by vinograd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H
+#include "libft.h"
 
-#include "libft/libft.h"
-#include "minilibx_macos/mlx.h"
-
-typedef struct
+int		ft_putstr(char const *s)
 {
-	int width;
-	int height;
-	int **z_matrix;
+	size_t i;
 
-	void *mlx_ptr;
-	void *win_ptr;
-}           fdf;
-
-void read_file(char *file_name,fdf *data);
-
-#endif
+	i = 0;
+	if (s != NULL)
+		while (s[i] != '\0')
+			ft_putchar(s[i++]);
+	return (i);
+}

@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: reginanureeva <reginanureeva@student.42    +#+  +:+       +#+        */
+/*   By: vinograd <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/01 17:04:32 by reginanuree       #+#    #+#             */
-/*   Updated: 2019/11/02 17:54:01 by reginanuree      ###   ########.fr       */
+/*   Created: 2019/04/12 14:39:44 by vinograd          #+#    #+#             */
+/*   Updated: 2019/05/01 18:46:15 by vinograd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H
+#include <stdlib.h>
 
-#include "libft/libft.h"
-#include "minilibx_macos/mlx.h"
-
-typedef struct
+char	*ft_strdup(char *s)
 {
-	int width;
-	int height;
-	int **z_matrix;
+	int		len;
+	char	*str;
 
-	void *mlx_ptr;
-	void *win_ptr;
-}           fdf;
-
-void read_file(char *file_name,fdf *data);
-
-#endif
+	len = 0;
+	while (s[len])
+		len++;
+	str = (char*)malloc(len + 1);
+	if (str == NULL)
+		return (NULL);
+	while (len >= 0)
+	{
+		str[len] = s[len];
+		len--;
+	}
+	return (str);
+}

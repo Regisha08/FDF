@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   ft_is_integer.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: reginanureeva <reginanureeva@student.42    +#+  +:+       +#+        */
+/*   By: Nik <Nik@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/01 17:04:32 by reginanuree       #+#    #+#             */
-/*   Updated: 2019/11/02 17:54:01 by reginanuree      ###   ########.fr       */
+/*   Created: 2019/08/31 13:48:14 by Nik               #+#    #+#             */
+/*   Updated: 2019/08/31 14:14:47 by Nik              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H
+#include "libft.h"
+#define INT_MAX 2147483647
+#define INT_MIN -2147483648
 
-#include "libft/libft.h"
-#include "minilibx_macos/mlx.h"
-
-typedef struct
+int		ft_isinteger(char *nbr)
 {
-	int width;
-	int height;
-	int **z_matrix;
+	long num;
 
-	void *mlx_ptr;
-	void *win_ptr;
-}           fdf;
-
-void read_file(char *file_name,fdf *data);
-
-#endif
+	if (!nbr || ft_strlen(nbr) > 11)
+		return (0);
+	num = ft_atoi_long(nbr);
+	return (num <= (long)INT_MAX && num >= (long)INT_MIN);
+}

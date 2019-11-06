@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: reginanureeva <reginanureeva@student.42    +#+  +:+       +#+        */
+/*   By: vinograd <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/01 17:04:32 by reginanuree       #+#    #+#             */
-/*   Updated: 2019/11/02 17:54:01 by reginanuree      ###   ########.fr       */
+/*   Created: 2019/04/29 17:07:50 by vinograd          #+#    #+#             */
+/*   Updated: 2019/05/03 17:56:50 by vinograd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H
+#include <stddef.h>
 
-#include "libft/libft.h"
-#include "minilibx_macos/mlx.h"
-
-typedef struct
+void	ft_bzero(void *s, size_t n)
 {
-	int width;
-	int height;
-	int **z_matrix;
+	size_t	i;
+	char	*str;
 
-	void *mlx_ptr;
-	void *win_ptr;
-}           fdf;
-
-void read_file(char *file_name,fdf *data);
-
-#endif
+	str = s;
+	i = 0;
+	while (i < n)
+	{
+		str[i] = 0;
+		i++;
+	}
+}

@@ -1,41 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strindex.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: reginanureeva <reginanureeva@student.42    +#+  +:+       +#+        */
+/*   By: vinograd <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/01 17:26:35 by reginanuree       #+#    #+#             */
-/*   Updated: 2019/11/03 14:37:19 by reginanuree      ###   ########.fr       */
+/*   Created: 2019/05/13 11:50:51 by vinograd          #+#    #+#             */
+/*   Updated: 2019/05/14 14:16:39 by vinograd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
-
-int deal_key(int key,void *data)
+int	ft_strindex(char *haystack, char *needle)
 {
-	ft_printf("%d",key);
-	return(0);
-}
-
-int main(int argc,char **argv)
-{
-	fdf *data;
-	data = (fdf*)malloc(sizeof(fdf));
-	read_file(argv[1], data);
-
 	int i;
 	int j;
+	int n;
+
 	i = 0;
-	while (i < data->height)
+	while (haystack[i])
 	{
 		j = 0;
-		while (j < data->width)
+		n = i;
+		while (needle[j] == haystack[n])
 		{
-			ft_printf("%2d", data->z_matrix[i][j]);
+			if (needle[j + 1] == '\0')
+				return (i);
+			n++;
 			j++;
 		}
-		ft_printf("\n");
 		i++;
 	}
+	return (-1);
 }

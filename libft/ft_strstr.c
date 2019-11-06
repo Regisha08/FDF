@@ -1,41 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: reginanureeva <reginanureeva@student.42    +#+  +:+       +#+        */
+/*   By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/01 17:26:35 by reginanuree       #+#    #+#             */
-/*   Updated: 2019/11/03 14:37:19 by reginanuree      ###   ########.fr       */
+/*   Created: 2019/04/30 14:25:48 by vinograd          #+#    #+#             */
+/*   Updated: 2019/08/07 21:30:37 by vinograd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
-
-int deal_key(int key,void *data)
+char	*ft_strstr(const char *haystach, const char *needle)
 {
-	ft_printf("%d",key);
-	return(0);
-}
-
-int main(int argc,char **argv)
-{
-	fdf *data;
-	data = (fdf*)malloc(sizeof(fdf));
-	read_file(argv[1], data);
-
 	int i;
 	int j;
+	int n;
+
 	i = 0;
-	while (i < data->height)
+	if (needle[i] == '\0')
+		return ((char*)haystach);
+	while (haystach[i])
 	{
 		j = 0;
-		while (j < data->width)
+		n = i;
+		while (haystach[n] == needle[j])
 		{
-			ft_printf("%2d", data->z_matrix[i][j]);
+			if (needle[j + 1] == '\0')
+				return ((char*)&haystach[i]);
 			j++;
+			n++;
 		}
-		ft_printf("\n");
 		i++;
 	}
+	return (0);
 }
