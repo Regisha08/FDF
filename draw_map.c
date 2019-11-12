@@ -6,29 +6,34 @@
 /*   By: rnureeva <rnureeva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/11 16:57:41 by rnureeva          #+#    #+#             */
-/*   Updated: 2019/11/11 18:19:20 by rnureeva         ###   ########.fr       */
+/*   Updated: 2019/11/12 13:42:23 by rnureeva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void    draw_map(t_fdf *map,t_image *image)
+void    draw(t_float *draw_map, t_fdf *map,t_image *image)
 {
-    int x;
-    int y;
-    
-    y = 0;
-    while (y < map->y)
+    draw_map->y = 0;
+    while (draw_map->y < map->y)
     {
-        x = 0;
-        while (x < map->x)
+        draw_map->x = 0;
+        while (draw_map->x < map->x)
         {
-            if (x < map->x - 1)
-                painter(x, y, x + 1,y, image, map);
-            if (y < map->y - 1)
-                painter(x,y,x,y + 1, image, map);
-            x++;
+            if (draw_map->x < map->x - 1)
+            {
+                draw_map->x1 = draw_map->x + 1;
+                draw_map->y1 = draw_map->y;
+                painter(*draw_map, *image, *map);
+            }
+            if (draw_map->y < map->y - 1)
+            {
+                draw_map->x1 = draw_map->x;
+                draw_map->y1 = draw_map->y + 1;
+                painter(*draw_map, *image, *map);
+            }
+            draw_map->x++;
         }
-        y++;
+        draw_map->y++;
     }
 }
