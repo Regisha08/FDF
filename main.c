@@ -3,39 +3,49 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: reginanureeva <reginanureeva@student.42    +#+  +:+       +#+        */
+/*   By: rnureeva <rnureeva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/01 17:26:35 by reginanuree       #+#    #+#             */
-/*   Updated: 2019/11/06 10:28:29 by reginanuree      ###   ########.fr       */
+/*   Updated: 2019/11/11 16:27:17 by rnureeva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+#include <stdio.h>
 
-int deal_key(int key,void *data)
+int		ft_error(char *s)
 {
-	printf("%d",key);
+	ft_putendl_fd(s, 2);
+	return (0);
+}
+int deal_key(int key, t_fdf *map)
+{
+	printf("%d", key);
 	return(0);
 }
 
-int main(int argc,char **argv)
+int main(int argc, char **argv)
 {
-	fdf *data;
-	data = (fdf*)malloc(sizeof(fdf));
-	read_file(argv[1], data);
-
+    t_fdf *map;
+    int fd;
 	int i;
 	int j;
+	t_image *image;
+	
+    
+    map = (t_fdf*)malloc(sizeof(t_fdf));
+
+    if (argc < 2)
+		return (ft_error("Usage: ./fdf [File]"));
+	if ((fd = open(argv[1], O_RDONLY)) == -1)
+		return (ft_error("Could not open file"));
+	read_map(argv[1], map);
+	
 	i = 0;
-	while (i < data->height)
-	{
-		j = 0;
-		while (j < data->width)
-		{
-			printf("%2d", data->z_matrix[i][j]);
-			j++;
-		}
-		printf("\n");
-		i++;
-	}
+	image->mlx_ptr = mlx_init();
+	image->win_ptr = mlx_new_window(image->mlx_ptr, 1000, 1000, "FDF");
+	painter( 10, 10, 600, 300, image);
+	mlx_key_hook(image->win_ptr, deal_key, NULL);
+	mlx_loop(image->mlx_ptr);
+	
 }
