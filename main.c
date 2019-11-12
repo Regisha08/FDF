@@ -6,7 +6,7 @@
 /*   By: rnureeva <rnureeva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/01 17:26:35 by reginanuree       #+#    #+#             */
-/*   Updated: 2019/11/11 16:27:17 by rnureeva         ###   ########.fr       */
+/*   Updated: 2019/11/11 19:01:31 by rnureeva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int main(int argc, char **argv)
 	
     
     map = (t_fdf*)malloc(sizeof(t_fdf));
+	image = (t_image*)malloc(sizeof(t_image));
 
     if (argc < 2)
 		return (ft_error("Usage: ./fdf [File]"));
@@ -44,7 +45,8 @@ int main(int argc, char **argv)
 	i = 0;
 	image->mlx_ptr = mlx_init();
 	image->win_ptr = mlx_new_window(image->mlx_ptr, 1000, 1000, "FDF");
-	painter( 10, 10, 600, 300, image);
+	image->zoom = 20;
+	draw_map(map,image);
 	mlx_key_hook(image->win_ptr, deal_key, NULL);
 	mlx_loop(image->mlx_ptr);
 	
