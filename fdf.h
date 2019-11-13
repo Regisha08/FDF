@@ -6,7 +6,7 @@
 /*   By: rnureeva <rnureeva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/01 17:04:32 by reginanuree       #+#    #+#             */
-/*   Updated: 2019/11/12 13:44:53 by rnureeva         ###   ########.fr       */
+/*   Updated: 2019/11/12 16:21:39 by rnureeva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,10 @@ typedef struct s_image
     void *win_ptr;
     int color;
     int zoom;
+    int shift_x;
+    int shift_y;
+    // t_float *draw_map;
+    // t_fdf *map;
 }           t_image;
 
 void read_map(char *file_to_read, t_fdf *map);

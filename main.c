@@ -6,7 +6,7 @@
 /*   By: rnureeva <rnureeva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/01 17:26:35 by reginanuree       #+#    #+#             */
-/*   Updated: 2019/11/12 13:52:27 by rnureeva         ###   ########.fr       */
+/*   Updated: 2019/11/12 16:23:48 by rnureeva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,18 @@ int		ft_error(char *s)
 	ft_putendl_fd(s, 2);
 	return (0);
 }
-int deal_key(int key, t_fdf *map)
+int deal_key(int key, t_image *image)
 {
 	printf("%d", key);
+	if(key == 126)
+		image->shift_y -=10;
+	if(key == 126)
+		image->shift_y +=10;
+	if(key == 126)
+		image->shift_x -=10;
+	if(key == 126)
+		image->shift_x +=10;
+	draw(image);
 	return(0);
 }
 
@@ -28,7 +37,6 @@ int main(int argc, char **argv)
 {
     int fd;
 	int i;
-	int j;
     t_fdf *map;
 	t_image *image;
 	t_float *draw_map;
@@ -48,7 +56,7 @@ int main(int argc, char **argv)
 	image->win_ptr = mlx_new_window(image->mlx_ptr, 1000, 1000, "FDF");
 	image->zoom = 20;
 	draw(draw_map, map, image);
-	mlx_key_hook(image->win_ptr, deal_key, NULL);
+	mlx_key_hook(image->win_ptr, deal_key,image);
 	mlx_loop(image->mlx_ptr);
-	
+	return (0);
 }
