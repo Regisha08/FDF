@@ -6,34 +6,49 @@
 /*   By: rnureeva <rnureeva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/11 16:57:41 by rnureeva          #+#    #+#             */
-/*   Updated: 2019/11/12 13:42:23 by rnureeva         ###   ########.fr       */
+/*   Updated: 2019/11/13 18:50:35 by rnureeva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void    draw(t_float *draw_map, t_fdf *map,t_image *image)
+void		help(t_fdf *map)
 {
-    draw_map->y = 0;
-    while (draw_map->y < map->y)
+	mlx_string_put(map->mlx_ptr, map->win_ptr, 10, 10, 0x247d58,
+	"To change scale use + or - ");
+	mlx_string_put(map->mlx_ptr,map->win_ptr, 10, 30, 0x247d58,
+	"To change altitude use Q or W");
+	mlx_string_put(map->mlx_ptr, map->win_ptr, 10, 50, 0x247d58,
+	"To move use arrow buttons");
+	mlx_string_put(map->mlx_ptr, map->win_ptr, 10, 70, 0x247d58,
+	"To change colors use R G B or C");
+	mlx_string_put(map->mlx_ptr, map->win_ptr, 10, 90, 0x247d58,
+	"To change type of projection use Z or X");
+}
+
+void    draw(t_fdf *map)
+{
+    help(map);
+    map->y = 0;
+    while (map->y < map->y_coordinate)
     {
-        draw_map->x = 0;
-        while (draw_map->x < map->x)
+        map->x = 0;
+        while (map->x < map->x_coordinate)
         {
-            if (draw_map->x < map->x - 1)
+            if (map->x < map->x_coordinate - 1)
             {
-                draw_map->x1 = draw_map->x + 1;
-                draw_map->y1 = draw_map->y;
-                painter(*draw_map, *image, *map);
+                map->x1 = map->x + 1;
+                map->y1 = map->y;
+                painter(*map);
             }
-            if (draw_map->y < map->y - 1)
+            if (map->y < map->y_coordinate - 1)
             {
-                draw_map->x1 = draw_map->x;
-                draw_map->y1 = draw_map->y + 1;
-                painter(*draw_map, *image, *map);
+                map->x1 = map->x;
+                map->y1 = map->y + 1;
+                painter(*map);
             }
-            draw_map->x++;
+            map->x++;
         }
-        draw_map->y++;
+        map->y++;
     }
 }

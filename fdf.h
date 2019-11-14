@@ -6,7 +6,7 @@
 /*   By: rnureeva <rnureeva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/01 17:04:32 by reginanuree       #+#    #+#             */
-/*   Updated: 2019/11/12 16:21:39 by rnureeva         ###   ########.fr       */
+/*   Updated: 2019/11/13 20:08:36 by rnureeva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,36 +17,47 @@
 #include "minilibx_macos/mlx.h"
 #include <math.h>
 
+# define WIN_X 1000
+# define WIN_Y 1000
+# define CW 0xFFFFFF
+# define CB 0x0E50BA
+# define CR 0xC60707
+# define CF 0x8c0fc6
+# define CY 0xe8930b
+# define CG 0x04963e
+
 typedef struct s_fdf
 {
-    int x;
-    int y;
+    int x_coordinate;
+    int y_coordinate;
     int **z_coordinate;
-}               t_fdf;
-
-typedef struct s_float
-{
     float x;
     float y;
     float x1;
     float y1;
     int   z;
     int   z1;
-}              t_float;
-
-typedef struct s_image
-{
     void *mlx_ptr;
     void *win_ptr;
     int color;
+    int old_color;
     int zoom;
     int shift_x;
     int shift_y;
-    // t_float *draw_map;
-    // t_fdf *map;
-}           t_image;
+}           t_fdf;
 
+void		init_fdf(t_fdf *map);
 void read_map(char *file_to_read, t_fdf *map);
-void painter(t_float draw_map, t_image image,t_fdf map);
-void    draw(t_float *draw_map, t_fdf *map,t_image *image);
+int get_y(char *file_to_read);
+int get_x(char *file_to_read);
+void create_z(int *z_num, char *line);
+void    draw(t_fdf *map);
+void painter(t_fdf map);
+void iso(t_fdf *map);
+int			event_key(int keycode, t_fdf *map);
+int			event_key1(int keycode, t_fdf *map);
+int			event_mouse(int button, int x, int y, t_fdf *map);
+int		ft_error(char *s);
+int		check_argc(int argc, char **argv);
+
 #endif

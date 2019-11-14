@@ -6,7 +6,7 @@
 /*   By: rnureeva <rnureeva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 14:28:41 by rnureeva          #+#    #+#             */
-/*   Updated: 2019/11/10 14:24:47 by rnureeva         ###   ########.fr       */
+/*   Updated: 2019/11/12 17:49:35 by rnureeva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,12 +65,12 @@ void read_map(char *file_to_read, t_fdf *map)
     char *line;
     int i;
 
-    map->y = get_y(file_to_read);
-    map->x = get_x(file_to_read);
-    map->z_coordinate = (int **)malloc(sizeof(int*) * (map->y + 1));
+    map->y_coordinate = get_y(file_to_read);
+    map->x_coordinate = get_x(file_to_read);
+    map->z_coordinate = (int **)malloc(sizeof(int*) * (map->y_coordinate + 1));
     i = 0;
-    while(i <= map->y)
-        map->z_coordinate[i++] = (int*)malloc(sizeof(int) * (map->x + 1));
+    while(i <= map->y_coordinate)
+        map->z_coordinate[i++] = (int*)malloc(sizeof(int) * (map->x_coordinate + 1));
     fd = open(file_to_read, O_RDONLY, 0);
     i = 0;
     while (get_next_line(fd, &line))
