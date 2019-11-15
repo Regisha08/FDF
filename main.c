@@ -6,7 +6,7 @@
 /*   By: rnureeva <rnureeva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/01 17:26:35 by reginanuree       #+#    #+#             */
-/*   Updated: 2019/11/15 15:34:33 by rnureeva         ###   ########.fr       */
+/*   Updated: 2019/11/15 15:37:18 by agusev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void		init_fdf(t_fdf *map)
 	map->shift_y = 400;
 }
 
-int		ft_error(char *s)
+int			ft_error(char *s)
 {
 	ft_putendl_fd(s, 2);
 	return (0);
