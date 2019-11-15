@@ -6,7 +6,7 @@
 /*   By: rnureeva <rnureeva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/11 16:57:41 by rnureeva          #+#    #+#             */
-/*   Updated: 2019/11/13 18:50:35 by rnureeva         ###   ########.fr       */
+/*   Updated: 2019/11/15 10:59:01 by rnureeva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,15 @@
 void		help(t_fdf *map)
 {
 	mlx_string_put(map->mlx_ptr, map->win_ptr, 10, 10, 0x247d58,
-	"To change scale use + or - ");
+	"To change brightness use + ");
 	mlx_string_put(map->mlx_ptr,map->win_ptr, 10, 30, 0x247d58,
 	"To change altitude use Q or W");
 	mlx_string_put(map->mlx_ptr, map->win_ptr, 10, 50, 0x247d58,
 	"To move use arrow buttons");
 	mlx_string_put(map->mlx_ptr, map->win_ptr, 10, 70, 0x247d58,
-	"To change colors use R G B or C");
+	"To change colors use first letter of color or click the mouse");
 	mlx_string_put(map->mlx_ptr, map->win_ptr, 10, 90, 0x247d58,
-	"To change type of projection use Z or X");
+	"To change type of projection use 2 or 3");
 }
 
 void    draw(t_fdf *map)

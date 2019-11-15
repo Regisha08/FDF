@@ -6,7 +6,7 @@
 /*   By: rnureeva <rnureeva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/10 14:27:17 by rnureeva          #+#    #+#             */
-/*   Updated: 2019/11/13 20:14:16 by rnureeva         ###   ########.fr       */
+/*   Updated: 2019/11/15 10:57:32 by rnureeva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,14 @@ void iso(t_fdf *map)
     map->y1 = (map->x1 + map->y1) * sin(0.523599) - map->z1;
 }
 
+void not_iso(t_fdf *map)
+{
+    map->x *= cos(0.523599);
+    map->y *= sin(0.523599);
+    map->x1 *= cos(0.523599);
+    map->y1 *= sin(0.523599);
+}
+
 void painter(t_fdf map)
 {
     float x_step;
@@ -44,8 +52,10 @@ void painter(t_fdf map)
 
     map.color = (map.z != 0 || map.z1 != 0) ?
 	map.old_color + map.z * 6 : 0xffffff;
-    iso (&map);
-
+    if (map.view == 20)
+        iso (&map);
+    else
+        not_iso (&map);
 
     x_step = map.x1 - map.x;
     y_step = map.y1 - map.y;

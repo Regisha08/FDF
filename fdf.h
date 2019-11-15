@@ -6,14 +6,14 @@
 /*   By: rnureeva <rnureeva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/01 17:04:32 by reginanuree       #+#    #+#             */
-/*   Updated: 2019/11/13 20:08:36 by rnureeva         ###   ########.fr       */
+/*   Updated: 2019/11/15 10:56:41 by rnureeva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
 
-#include "../libft/libft.h"
+#include "libft/libft.h"
 #include "minilibx_macos/mlx.h"
 #include <math.h>
 
@@ -37,6 +37,7 @@ typedef struct s_fdf
     float y1;
     int   z;
     int   z1;
+    int view;
     void *mlx_ptr;
     void *win_ptr;
     int color;
@@ -54,6 +55,7 @@ void create_z(int *z_num, char *line);
 void    draw(t_fdf *map);
 void painter(t_fdf map);
 void iso(t_fdf *map);
+void not_iso(t_fdf *map);
 int			event_key(int keycode, t_fdf *map);
 int			event_key1(int keycode, t_fdf *map);
 int			event_mouse(int button, int x, int y, t_fdf *map);
