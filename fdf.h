@@ -6,7 +6,7 @@
 /*   By: rnureeva <rnureeva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/01 17:04:32 by reginanuree       #+#    #+#             */
-/*   Updated: 2019/11/15 14:47:44 by rnureeva         ###   ########.fr       */
+/*   Updated: 2019/11/15 15:26:01 by rnureeva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ int			event_key(int keycode, t_fdf *map);
 int			event_key1(int keycode, t_fdf *map);
 int			event_mouse(int button, int x, int y, t_fdf *map);
 int			ft_error(char *s);
-int			check_argc(int argc, char **argv);
 void		zoom_changer(t_fdf *map);
 void		shift_changer(t_fdf *map);
 float		ft_max(float x, float y);

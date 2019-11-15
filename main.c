@@ -6,7 +6,7 @@
 /*   By: rnureeva <rnureeva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/01 17:26:35 by reginanuree       #+#    #+#             */
-/*   Updated: 2019/11/15 14:55:50 by rnureeva         ###   ########.fr       */
+/*   Updated: 2019/11/15 15:28:29 by rnureeva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,29 @@ void		init_fdf(t_fdf *map)
 	map->shift_y = 400;
 }
 
+int		ft_error(char *s)
+{
+	ft_putendl_fd(s, 2);
+	return (0);
+}
+
 int			main(int argc, char **argv)
 {
 	t_fdf *map;
+	int fd;
 
+	fd = 0;
 	map = (t_fdf*)malloc(sizeof(t_fdf));
-	check_argc(argc, argv);
+	if (argc != 2)
+	{
+		ft_error("Use: ./fdf [File]");
+		return (0);
+	}
+	if ((fd = open(argv[1], O_RDONLY) <= 0))
+	{
+		ft_error("Could not open file");
+		return (-1);
+	}
 	init_fdf(map);
 	read_map(argv[1], map);
 	draw(map);
