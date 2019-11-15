@@ -6,7 +6,7 @@
 /*   By: rnureeva <rnureeva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/01 17:04:32 by reginanuree       #+#    #+#             */
-/*   Updated: 2019/11/15 10:56:41 by rnureeva         ###   ########.fr       */
+/*   Updated: 2019/11/15 11:02:29 by rnureeva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ typedef struct s_fdf
     int zoom;
     int shift_x;
     int shift_y;
+    int info;
 }           t_fdf;
 
 void		init_fdf(t_fdf *map);

@@ -6,7 +6,7 @@
 /*   By: rnureeva <rnureeva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 18:44:25 by rnureeva          #+#    #+#             */
-/*   Updated: 2019/11/15 10:57:02 by rnureeva         ###   ########.fr       */
+/*   Updated: 2019/11/15 11:03:44 by rnureeva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,10 @@ int			event_key1(int keycode, t_fdf *map)
 		map->view  = 20;
 	if (keycode == 19)
 		map->view = 19;
+	if (keycode == 34)
+		map->info = 1;
+	if (keycode == 31)
+		map->info = 0;
 	mlx_clear_window(map->mlx_ptr, map->win_ptr);
 	draw(map);
 	return (0);

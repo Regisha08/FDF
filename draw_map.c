@@ -6,7 +6,7 @@
 /*   By: rnureeva <rnureeva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/11 16:57:41 by rnureeva          #+#    #+#             */
-/*   Updated: 2019/11/15 10:59:01 by rnureeva         ###   ########.fr       */
+/*   Updated: 2019/11/15 11:02:19 by rnureeva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ void		help(t_fdf *map)
 
 void    draw(t_fdf *map)
 {
-    help(map);
+    if (map->info == 1)
+        help(map);
     map->y = 0;
     while (map->y < map->y_coordinate)
     {
