@@ -6,16 +6,16 @@
 /*   By: agusev <agusev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/01 17:04:32 by reginanuree       #+#    #+#             */
-/*   Updated: 2019/11/15 12:57:21 by agusev           ###   ########.fr       */
+/*   Updated: 2019/11/15 13:02:36 by agusev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
 
-#include "libft/libft.h"
-#include "minilibx_macos/mlx.h"
-#include <math.h>
+# include "libft/libft.h"
+# include "minilibx_macos/mlx.h"
+# include <math.h>
 
 # define WIN_X 1000
 # define WIN_Y 1000
@@ -26,7 +26,7 @@
 # define CY 0xe8930b
 # define CG 0x04963e
 
-typedef struct s_fdf
+typedef struct   
 {
     int     x_coordinate;
     int     y_coordinate;
@@ -46,7 +46,7 @@ typedef struct s_fdf
     int     shift_x;
     int     shift_y;
     int     info;
-}               t_fdf;
+}           t_fdf;
 
 void        init_fdf(t_fdf *map);
 void        read_map(char *file_to_read, t_fdf *map);

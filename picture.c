@@ -6,7 +6,7 @@
 /*   By: agusev <agusev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/10 14:27:17 by rnureeva          #+#    #+#             */
-/*   Updated: 2019/11/15 12:55:59 by agusev           ###   ########.fr       */
+/*   Updated: 2019/11/15 13:13:22 by agusev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void        not_iso(t_fdf *map)
     map->y1 *= map->zoom;
  }
 
-void        shift_changer(t_fdf *map)
+void		shift_changer(t_fdf *map)
 {
     map->x += map->shift_x;
     map->y += map->shift_y;
