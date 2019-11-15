@@ -6,12 +6,19 @@
 /*   By: agusev <agusev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/01 17:26:35 by reginanuree       #+#    #+#             */
-/*   Updated: 2019/11/15 12:36:04 by agusev           ###   ########.fr       */
+/*   Updated: 2019/11/15 12:56:14 by agusev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 #include <stdio.h>
+
+float       ft_max(float x, float y)
+{
+    if (x > y)
+        return (x);
+    return (y);
+}
 
 void		init_fdf(t_fdf *map)
 {

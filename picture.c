@@ -6,18 +6,11 @@
 /*   By: agusev <agusev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/10 14:27:17 by rnureeva          #+#    #+#             */
-/*   Updated: 2019/11/15 12:51:49 by agusev           ###   ########.fr       */
+/*   Updated: 2019/11/15 12:55:59 by agusev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-
-float       ft_max(float x, float y)
-{
-    if (x > y)
-        return (x);
-    return (y);
-}
 
 void        iso(t_fdf *map)
 {
@@ -50,7 +43,7 @@ void        shift_changer(t_fdf *map)
     map->x1 += map->shift_x;
     map->y1 += map->shift_y;
 }
-void    ßpainter(t_fdf map)
+void    painter(t_fdf map)
 {
     float x_step;
     float y_step;

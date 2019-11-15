@@ -6,7 +6,7 @@
 /*   By: agusev <agusev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/01 17:04:32 by reginanuree       #+#    #+#             */
-/*   Updated: 2019/11/15 12:49:04 by agusev           ###   ########.fr       */
+/*   Updated: 2019/11/15 12:57:21 by agusev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,6 @@ int         ft_error(char *s);
 int         check_argc(int argc, char **argv);
 void        zoom_changer(t_fdf *map);
 void        shift_changer(t_fdf *map);
+float       ft_max(float x, float y);
 
 #endif
