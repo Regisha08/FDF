@@ -3,30 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   draw_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnureeva <rnureeva@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agusev <agusev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/11 16:57:41 by rnureeva          #+#    #+#             */
-/*   Updated: 2019/11/15 11:02:19 by rnureeva         ###   ########.fr       */
+/*   Updated: 2019/11/15 12:25:09 by agusev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void		help(t_fdf *map)
+void        help(t_fdf *map)
 {
-	mlx_string_put(map->mlx_ptr, map->win_ptr, 10, 10, 0x247d58,
-	"To change brightness use + ");
-	mlx_string_put(map->mlx_ptr,map->win_ptr, 10, 30, 0x247d58,
-	"To change altitude use Q or W");
-	mlx_string_put(map->mlx_ptr, map->win_ptr, 10, 50, 0x247d58,
-	"To move use arrow buttons");
-	mlx_string_put(map->mlx_ptr, map->win_ptr, 10, 70, 0x247d58,
-	"To change colors use first letter of color or click the mouse");
-	mlx_string_put(map->mlx_ptr, map->win_ptr, 10, 90, 0x247d58,
-	"To change type of projection use 2 or 3");
+    mlx_string_put(map->mlx_ptr, map->win_ptr, 10, 10, 0x247d58,
+    "To change brightness use + ");
+    mlx_string_put(map->mlx_ptr,map->win_ptr, 10, 30, 0x247d58,
+    "To change zoom use + or -");
+    mlx_string_put(map->mlx_ptr, map->win_ptr, 10, 50, 0x247d58,
+    "To move use arrow buttons");
+    mlx_string_put(map->mlx_ptr, map->win_ptr, 10, 70, 0x247d58,
+    "To change colors use first letter of color or click the mouse");
+    mlx_string_put(map->mlx_ptr, map->win_ptr, 10, 90, 0x247d58,
+    "To change type of projection use 2 or 3");
 }
 
-void    draw(t_fdf *map)
+void        draw(t_fdf *map)
 {
     if (map->info == 1)
         help(map);

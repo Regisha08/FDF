@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnureeva <rnureeva@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agusev <agusev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 18:46:48 by rnureeva          #+#    #+#             */
-/*   Updated: 2019/11/13 18:47:32 by rnureeva         ###   ########.fr       */
+/*   Updated: 2019/11/15 12:13:00 by agusev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		ft_error(char *s)
 {
-	ft_putendl_fd(s, 2); 
+	ft_putendl_fd(s, 2);
 	return (0);
 }
 
