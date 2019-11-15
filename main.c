@@ -6,7 +6,7 @@
 /*   By: rnureeva <rnureeva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/01 17:26:35 by reginanuree       #+#    #+#             */
-/*   Updated: 2019/11/15 15:28:29 by rnureeva         ###   ########.fr       */
+/*   Updated: 2019/11/15 15:32:56 by rnureeva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,10 @@ int		ft_error(char *s)
 	return (0);
 }
 
-int			main(int argc, char **argv)
+int		main(int argc, char **argv)
 {
-	t_fdf *map;
-	int fd;
+	t_fdf	*map;
+	int		fd;
 
 	fd = 0;
 	map = (t_fdf*)malloc(sizeof(t_fdf));
