@@ -6,7 +6,7 @@
 /*   By: rnureeva <rnureeva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/01 17:26:35 by reginanuree       #+#    #+#             */
-/*   Updated: 2019/11/15 15:40:49 by rnureeva         ###   ########.fr       */
+/*   Updated: 2019/11/15 16:22:36 by rnureeva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void		init_fdf(t_fdf *map)
 	map->win_ptr = mlx_new_window(map->mlx_ptr, 1000, 1000, "FDF");
 	map->shift_x = 400;
 	map->shift_y = 400;
+	map->altitude = 1;
 }
 
 int			ft_error(char *s)

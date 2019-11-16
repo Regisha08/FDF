@@ -6,7 +6,7 @@
 /*   By: rnureeva <rnureeva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 18:44:25 by rnureeva          #+#    #+#             */
-/*   Updated: 2019/11/15 14:48:13 by rnureeva         ###   ########.fr       */
+/*   Updated: 2019/11/15 16:32:20 by rnureeva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,11 @@
 
 int			event_key(int keycode, t_fdf *map)
 {
-	if (keycode == 6)
+	if (keycode == 25)
+		map->altitude += 5.5;
+	else if (keycode == 29)
+		map->altitude -= 5.5;
+	else if (keycode == 6)
 		map->old_color = CW;
 	else if (keycode == 11)
 		map->old_color = CB;

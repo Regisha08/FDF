@@ -6,7 +6,7 @@
 /*   By: rnureeva <rnureeva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/10 14:27:17 by rnureeva          #+#    #+#             */
-/*   Updated: 2019/11/15 14:47:37 by rnureeva         ###   ########.fr       */
+/*   Updated: 2019/11/15 16:31:26 by rnureeva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 void		iso(t_fdf *map)
 {
 	map->x = (map->x - map->y) * cos(0.5);
-	map->y = (map->x + map->y) * sin(0.523599) - map->z;
+	map->y = (map->x + map->y) * sin(0.523599) - map->z*map->altitude;
 	map->x1 = (map->x1 - map->y1) * cos(0.523599);
-	map->y1 = (map->x1 + map->y1) * sin(0.523599) - map->z1;
+	map->y1 = (map->x1 + map->y1) * sin(0.523599) - map->z1*map->altitude;
 }
 
 void		not_iso(t_fdf *map)

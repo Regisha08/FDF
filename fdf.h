@@ -6,7 +6,7 @@
 /*   By: rnureeva <rnureeva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/01 17:04:32 by reginanuree       #+#    #+#             */
-/*   Updated: 2019/11/15 15:26:01 by rnureeva         ###   ########.fr       */
+/*   Updated: 2019/11/15 16:23:14 by rnureeva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ typedef struct
 	int		shift_x;
 	int		shift_y;
 	int		info;
+	int		altitude;
 }			t_fdf;
 
 void		init_fdf(t_fdf *map);
